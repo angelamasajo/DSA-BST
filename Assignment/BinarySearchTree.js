@@ -238,7 +238,7 @@ function thirdLargest(tree) {
   return array[array.length - 3]
 }
 
-console.log(thirdLargest(main()))
+// console.log(thirdLargest(main()))
 
 
 // ================================ DRILL 8 =======================================
@@ -248,8 +248,10 @@ console.log(thirdLargest(main()))
 
 
 
+
 // ================================ DRILL 9 =======================================
 
+// ARE THEY THE SAME BSTs?
 // You are given two arrays which represent two sequences of keys that are used 
 // to create two binary search trees. Write a program that will tell whether 
 // the two BSTs will be identical or not without actually constructing the tree. 
@@ -258,3 +260,26 @@ console.log(thirdLargest(main()))
 // E.g., 3, 5, 4, 6, 1, 0, 2 and 3, 1, 5, 2, 4, 6, 0 are two sequences of arrays 
 // but will create the exact same BSTs and your program should return true.
 
+
+const array1 = [3, 5, 4, 6, 1, 0, 2];
+const array2 = [3, 1, 5, 2, 4, 6, 0];
+
+function areTheyTheSame(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false
+  }
+  let arr1 = array1.sort(function(a, b) {
+    return a - b
+  })
+  let arr2 = array2.sort(function(a, b) {
+    return a - b
+  })
+  for (let i = 0; i < array1.length; i++) {
+    if(arr1[i] !== arr2[i]) {
+      return false
+    }
+  }
+  return true
+}
+
+console.log(areTheyTheSame(array1, array2))
