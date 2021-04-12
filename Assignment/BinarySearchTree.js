@@ -226,12 +226,15 @@ function thirdLargest(tree) {
     if (!tree) {
       return
     }
+    // push the keys from the tree into the array
     array.push(tree.key)
     subRec(tree.left)
     subRec(tree.right)
   }
+  // sort the array
   subRec(tree)
   array.sort()
+  // length - 3 to make it third largest
   return array[array.length - 3]
 }
 
@@ -254,3 +257,4 @@ console.log(thirdLargest(main()))
 // construct the BST. What is the time complexity of your algorithm? 
 // E.g., 3, 5, 4, 6, 1, 0, 2 and 3, 1, 5, 2, 4, 6, 0 are two sequences of arrays 
 // but will create the exact same BSTs and your program should return true.
+
